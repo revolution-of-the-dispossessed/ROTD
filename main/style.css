@@ -1,0 +1,297 @@
+MAIN/STYLE.CSS
+--------------------------------------------------------------
+
+/* --- Basic page setup --- */
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* --- Main container/module --- */
+.module {
+    background-color: #000;
+    border: 2px solid red;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: “dripping red” effect using pseudo-elements */
+.module::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(255,0,0,0.2) 0px,
+        rgba(255,0,0,0.2) 3px,
+        transparent 3px,
+        transparent 6px
+    );
+    pointer-events: none;
+}
+
+/* --- Sidebars --- */
+.sidebar {
+    border: 3px double red;
+    padding: 15px;
+    margin: 10px;
+}
+
+/* --- Links with glitch effect --- */
+a {
+    color: red;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 0 red, -2px 0 blue; transform: translate(0,0); }
+    20% { text-shadow: -2px -2px red, 2px 2px blue; transform: translate(-1px,1px); }
+    40% { text-shadow: 2px 2px red, -2px -2px blue; transform: translate(1px,-1px); }
+    60% { text-shadow: -2px 2px red, 2px -2px blue; transform: translate(-1px,1px); }
+    80% { text-shadow: 2px -2px red, -2px 2px blue; transform: translate(1px,-1px); }
+    100% { text-shadow: 2px 0 red, -2px 0 blue; transform: translate(0,0); }
+}
+
+/* --- CRT scanlines --- */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        rgba(0,0,0,0) 0px,
+        rgba(0,0,0,0.05) 1px
+    );
+    pointer-events: none;
+}
+
+/* --- Glitchy background flicker --- */
+@keyframes screen-flicker {
+    0%, 19%, 21%, 50%, 52%, 100% { opacity: 1; }
+    20%, 51% { opacity: 0.95; }
+}
+
+body {
+    animation: screen-flicker 2s infinite;
+}
+
+/* --- Optional: red glow around module on hover --- */
+.module:hover {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
+/* --- Optional: dripping effect more pronounced (experimental) --- */
+.module.drip::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10%;
+    width: 5px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    animation: drip 1s infinite;
+}
+
+@keyframes drip {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0; }
+}
+
+.contact-buttons {
+    display: flex;          /* flexible layout */
+    flex-wrap: wrap;        /* allow wrapping to next line */
+    gap: 5px;               /* space between buttons */
+    justify-content: flex-start; /* align buttons to left */
+}
+
+.contact-button {
+    background-color: #000;
+    color: red;
+    border: 2px solid red;
+    padding: 4px 8px;
+    font-family: 'Times New Roman', serif;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    width: 60px;          /* FIXED width */
+    text-align: center;
+}
+
+.contact-button:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    color: #fff;
+    animation: glitch 0.3s infinite;
+}
+
+
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.info-grid div {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+    background: #000;
+    box-shadow: 0 0 10px rgba(255,0,0,0.3);
+}
+
+.description-box {
+    border: 2px solid red;
+    padding: 15px;
+    margin-top: 20px;
+    background: #000;
+}
+
+.page-wrapper {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Sidebar */
+.sidebar-nav {
+    width: 180px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin: 6px 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 5px;
+    border: 1px solid red;
+    text-align: center;
+}
+
+/* Main content */
+.content-area {
+    flex: 1;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.post-header {
+    text-align: center;
+}
+
+.post-meta {
+    font-size: 14px;
+}
+
+.post-content {
+    line-height: 1.6;
+}
+
+.post-divider {
+    text-align: center;
+    margin: 40px 0; /* space above & below */
+}
+
+.post-divider img {
+    max-width: 100%;
+    height: auto;
+    pointer-events: none; /* makes it feel more decorative */
+}
+
+.page-wrapper {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.sidebar-nav {
+    width: 180px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin: 6px 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 5px;
+    border: 1px solid red;
+    text-align: center;
+    text-decoration: none;
+    color: red;
+    font-family: 'Times New Roman', serif;
+    box-shadow: 0 0 10px rgba(255,0,0,0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar-nav a:hover {
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255,0,0,0.6);
+    animation: glitch 0.3s infinite;
+}
+
+.content-area {
+    flex: 1;
+}
+
+.site-entry {
+    border: 2px solid red;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #000;
+    box-shadow: 0 0 10px rgba(255,0,0,0.3);
+}
+
+.site-entry h2 a {
+    color: red;
+    text-decoration: none;
+}
+
+.site-entry h2 a:hover {
+    color: #fff;
+    animation: glitch 0.3s infinite;
+}
