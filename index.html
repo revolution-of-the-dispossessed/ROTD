@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Welcome</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Forgotten Institute - Entrance</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Optional Google font for more 90s digital feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- CENTER MODULE -->
-<div class="module landing-module" style="max-width:600px; margin: 100px auto; text-align:center;">
-    <h1>Greeting and Salutations</h1>
-    <img src="https://i.imgur.com/Co5ETGu.gif" alt="Welcome" style="max-width:200px; width:100%;">
-    <p>This site documents the morbid, the obscene, and the unthinkable.</p>
-    <p>By entering, you accept the risks and responsibility of what</p>
-    <p>you are about to learn or see.</p>
-
-    <!-- ENTER BUTTON IMAGE -->
-    <div style="margin-top: 30px;">
-        <a href="main/home.html">
-            <img src="https://i.imgur.com/ueM7AKa.gif" alt="Enter Site" style="max-width:200px; width:100%;">
-        </a>
+  <!-- Full-screen background image (entryway) -->
+  <div id="game-container">
+    <div id="scene-index" class="scene">
+      <!-- Clickable door hotspot -->
+      <div class="hotspot door" 
+           style="left: 45%; top: 30%; width: 18%; height: 55%;"
+           onclick="goToNextRoom()"></div>
     </div>
-</div>
+  </div>
 
+  <!-- Name entry modal (notebook paper popup) -->
+  <div id="name-modal" class="modal">
+    <div class="notebook-paper">
+      <h2>Excuse from Dr. M. Filling</h2>
+      <p class="date">April 20, 1999</p>
+      
+      <label for="player-name">Patient Name:</label>
+      <input type="text" id="player-name" placeholder="Enter your name..." autocomplete="off"/>
+      
+      <p class="note-body">
+        This is to certify that the above-named patient was seen in my office on this date<br>
+        for emergency dental treatment and is excused from school/work until recovered.<br><br>
+        Please admit to the Institute upon presentation of this note.<br>
+        No questions will be asked.
+      </p>
+      
+      <p class="signature">
+        ___________________________<br>
+        Dr. Marvin Filling, DDS
+      </p>
+      
+      <button id="submit-name">Enter the Institute</button>
+    </div>
+  </div>
+
+  <!-- Message overlay for later clues/dialogue -->
+  <div id="ui-overlay">
+    <div id="message"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
